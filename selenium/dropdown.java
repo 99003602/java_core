@@ -13,13 +13,14 @@ public static void main(String[] args) throws InterruptedException {
 	 driver.get("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
 		driver.manage().window().maximize(); 
 		
-	/*	Select dd=new Select(driver.findElement(By.id("select-demo")));
+		Select dd=new Select(driver.findElement(By.id("select-demo")));
 				dd.selectByVisibleText("Sunday");
 				Thread.sleep(5000);
 				dd.selectByValue("Friday");
 				Thread.sleep(5000);
 				dd.selectByIndex(3);
-				Thread.sleep(5000);*/
+				Thread.sleep(5000);
+				
 //multi select
 		
 		Select d=new Select(driver.findElement(By.id("multi-select")));
@@ -27,6 +28,7 @@ public static void main(String[] args) throws InterruptedException {
 		
 	    d.isMultiple();
 		driver.findElement(By.id("printAll")).click();;
+		
 		
 }
 }

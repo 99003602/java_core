@@ -1,6 +1,7 @@
 package selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -28,9 +29,17 @@ public class alert {
 		 driver.get("https://www.seleniumeasy.com/test/javascript-alert-box-demo.html");
 			driver.manage().window().maximize(); // to maximize the page
 			 
-	         driver.findElement(By.className("btn-lg")).click();
+			Thread.sleep(1000);
+
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
+
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+			Thread.sleep(3000);
+			
+	         driver.findElement(By.xpath("//*[@id=\"easycont\"]/div/div[2]/div[3]/div[2]/button")).click();
 			 Thread.sleep(5000);
-			 sendkeys("jhf");
+			 driver.switchTo().alert().sendKeys("jhf");
 			 driver.switchTo().alert().accept(); // when inspect is not working use this command
 		 
 	}
